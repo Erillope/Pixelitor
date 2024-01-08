@@ -25,6 +25,22 @@ import java.util.Arrays;
 /**
  * This contains a static method to solve a system of simple linear equations.
  */
+class Calculator {
+    
+    public static int calculateSome(double[] d){
+        int v = 0;
+        int a = 0;
+        for (a = 0; a < d.length; a++) {
+            if (d[a] == 1) {
+                v = a;
+                a = d.length;
+            }
+        }
+        return v;
+    }
+    
+}
+
 public class Equations {
     /**
      * Generating the text in certain exceptions is not a trivial task if you
@@ -33,21 +49,9 @@ public class Equations {
     private static final boolean VERBOSE_EXCEPTIONS = true;
 
     private static int compareCoeffs(double[] d1, double[] d2) {
-        int v1 = 0;
-        int v2 = 0;
-        int a;
-        for (a = 0; a < d1.length; a++) {
-            if (d1[a] == 1) {
-                v1 = a;
-                a = d1.length;
-            }
-        }
-        for (a = 0; a < d2.length; a++) {
-            if (d2[a] == 1) {
-                v2 = a;
-                a = d2.length;
-            }
-        }
+        int v1 = Calculator.calculateSome(d1);
+        int v2 = Calculator.calculateSome(d2);
+
         return v1 - v2;
     }
 
