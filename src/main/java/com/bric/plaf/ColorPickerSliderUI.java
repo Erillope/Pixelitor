@@ -50,11 +50,11 @@ public class ColorPickerSliderUI extends BasicSliderUI {
     private final int[] intArray = new int[Toolkit.getDefaultToolkit().getScreenSize().height];
     private final BufferedImage bi = new BufferedImage(1, intArray.length, TYPE_INT_RGB);
     int lastMode = -1;
-
+    
     public ColorPickerSliderUI(JSlider b, ColorPicker cp) {
         super(b);
         colorPicker = cp;
-        cp.getColorPanel().addComponentListener(new ComponentAdapter() {
+        cp.addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {
                 try {
