@@ -38,6 +38,13 @@ import static java.awt.geom.PathIterator.SEG_QUADTO;
  * <P>This is designed to match the <code>GeneralPath</code> method
  * signatures.
  */
+
+class Point{
+    float x;
+    float y;
+    
+    public Point(float x, float y){this.x = x; this.y=y;}
+}
 public abstract class PathWriter {
     /**
      * Adds a point to the path by moving to the specified coordinates.
@@ -75,7 +82,7 @@ public abstract class PathWriter {
      * @param x   the x-coordinate of the end point.
      * @param y   the y-coordinate of the end point.
      */
-    public abstract void curveTo(float cx1, float cy1, float cx2, float cy2, float x, float y);
+    public abstract void curveTo(Point cp1, Point cp2, Point cp);
 
     /**
      * Closes the current subpath by drawing a straight line back to the coordinates of the last moveTo.
