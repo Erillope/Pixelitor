@@ -29,6 +29,7 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentListener;
 import java.io.Serial;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -1182,5 +1183,9 @@ public class ColorPicker extends JPanel {
             }
             label.setVisible(b);
         }
+    }
+    
+    public synchronized void addComponentListener(ComponentListener l){
+        this.getColorPanel().addComponentListener(l);
     }
 }
